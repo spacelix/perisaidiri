@@ -4,30 +4,93 @@
         <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
             <div
                 class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Before they sold out
-                    <br class="hidden lg:inline-block">readymade gluten
+                <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Perisai Diri
+                    <br class="hidden lg:inline-block">Kabupaten Bandung Barat
                 </h1>
-                <p class="mb-8 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air
-                    plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken
-                    authentic tumeric truffaut hexagon try-hard chambray.</p>
+                <p class="mb-8 leading-relaxed">Pandai Silat Tanpa Cedera</p>
                 <div class="flex justify-center gap-3">
-                    <x-primary-button>Button</x-primary-button>
-                    <x-secondary-button>Button</x-secondary-button>
+                    <x-primary-button>Daftar Sekarang!</x-primary-button>
+                    <x-secondary-button>Pelajari Lebih Lanjut</x-secondary-button>
                 </div>
             </div>
             <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                <img class="object-cover object-center rounded" alt="hero"
-                     src="https://dummyimage.com/720x600/edf2f7/a5afbd">
+
+                <div id="default-carousel" class="relative w-full" data-carousel="slide">
+                    <!-- Carousel wrapper -->
+                    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                        <!-- Item 1 -->
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="{{asset('img/hero.jpg')}}"
+                                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                 alt="...">
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="{{asset('img/hero2.jpg')}}"
+                                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                 alt="...">
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="{{asset('img/hero3.jpg')}}"
+                                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                 alt="...">
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="{{asset('img/hero4.jpg')}}"
+                                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                 alt="...">
+                        </div>
+                        <!-- Item 5 -->
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="{{asset('img/hero.jpg')}}"
+                                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                 alt="...">
+                        </div>
+                    </div>
+                    <!-- Slider controls -->
+                    <button type="button"
+                            class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                            data-carousel-prev>
+                        <span
+                            class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                            <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M15 19l-7-7 7-7">
+                                </path>
+                            </svg>
+                            <span class="sr-only">Previous</span>
+                        </span>
+                    </button>
+                    <button type="button"
+                            class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                            data-carousel-next>
+                        <span
+                            class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                            <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                 xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round"
+                                                                          stroke-width="2"
+                                                                          d="M9 5l7 7-7 7"></path></svg>
+                            <span class="sr-only">Next</span>
+                        </span>
+                    </button>
+                </div>
+
             </div>
         </div>
     </section>
     <section class="text-gray-700 body-font border-t border-gray-200">
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-col text-center w-full mb-20">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Our Team</h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn
-                    asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of
-                    them.</p>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Pengurus Kita</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+                </p>
             </div>
             <div class="flex flex-wrap -m-2">
                 <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
@@ -63,72 +126,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                        <img alt="team"
-                             class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                             src="https://dummyimage.com/90x90/edf2f7/a5afbd">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">John Doe</h2>
-                            <p class="text-gray-500">DevOps</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                        <img alt="team"
-                             class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                             src="https://dummyimage.com/94x94/edf2f7/a5afbd">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">Martin Eden</h2>
-                            <p class="text-gray-500">Software Engineer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                        <img alt="team"
-                             class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                             src="https://dummyimage.com/98x98/edf2f7/a5afbd">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">Boris Kitua</h2>
-                            <p class="text-gray-500">UX Researcher</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                        <img alt="team"
-                             class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                             src="https://dummyimage.com/100x90/edf2f7/a5afbd">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">Atticus Finch</h2>
-                            <p class="text-gray-500">QA Engineer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                        <img alt="team"
-                             class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                             src="https://dummyimage.com/104x94/edf2f7/a5afbd">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">Alper Kamu</h2>
-                            <p class="text-gray-500">System</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                        <img alt="team"
-                             class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                             src="https://dummyimage.com/108x98/edf2f7/a5afbd">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">Rodrigo Monchi</h2>
-                            <p class="text-gray-500">Product Manager</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -137,8 +134,6 @@
             <div class="container flex flex-col items-start mx-auto lg:items-center">
                 <p class="relative flex items-start justify-start w-full text-lg font-bold tracking-wider text-purple-500 uppercase lg:justify-center lg:items-center">
                     Don't just take our word for it</p>
-
-
                 <h2 class="relative flex items-start justify-start w-full max-w-3xl text-5xl font-bold lg:justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                          class="absolute right-0 hidden w-12 h-12 -mt-2 -mr-16 text-gray-200 lg:inline-block"

@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -25,7 +26,13 @@ class User extends Authenticatable
         'password',
         'tanggal_lahir',
         'alamat',
-        'foto'
+        'foto',
+        'jenis_kelamin',
+        'no_anggota',
+        'unit_id',
+        'tingkatan_id',
+        'slug',
+
     ];
 
     /**
@@ -46,4 +53,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the unit that owns the User
+     *
+     * @return BelongsTo
+     */
+    public function unit(): BelongsTo
+    {
+        return $this->belongsTo(Unit::class);
+    }
+
+    public function tingkatan()
+    {
+        return $this->belongsTo(Tingkatan::class);
+    }
 }

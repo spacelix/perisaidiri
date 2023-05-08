@@ -15,6 +15,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdn.tiny.cloud/1/moepazaeowxvvlmqfwx11o5clw1au584q8wq0gmpa10ng4c2/tinymce/6/tinymce.min.js"
             referrerpolicy="origin"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js"></script>
     @stack('js')
 </head>
 <body class="font-sans antialiased">

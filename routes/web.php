@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\AnggotaController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\TingkatanController;
 use App\Http\Controllers\Admin\UnitsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -23,6 +25,8 @@ Route::get('/unit-ranting-pelatihan', [UnitController::class, 'index'])->name('u
 Route::group(['middleware' => ['role:SuperAdmin']], function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
     Route::resource('unit-ranting', UnitsController::class);
+    Route::resource('anggota', AnggotaController::class);
+    Route::resource('tingkatan-angkota', TingkatanController::class);
 });
 
 Route::middleware('auth')->group(function () {

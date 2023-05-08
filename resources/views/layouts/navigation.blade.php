@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('unit-ranting.index')" :active="request()->routeIs('unit-ranting.*')">
                         {{ __('Unit/Ranting') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('anggota.index')" :active="request()->routeIs('anggota.*')">
+                        {{ __('Anggota') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -91,6 +94,13 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                <x-responsive-nav-link :href="route('unit-ranting.index')"
+                                       :active="request()->routeIs('unit-ranting.*')">
+                    {{ __('Unit/Ranting') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('anggota.index')" :active="request()->routeIs('anggota.*')">
+                    {{ __('Anggota') }}
+                </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>

@@ -54,6 +54,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     /**
      * Get the unit that owns the User
      *

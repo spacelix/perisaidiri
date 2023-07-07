@@ -8,8 +8,8 @@ use App\Models\Unit;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use function GuzzleHttp\Promise\all;
 
 class AnggotaController extends Controller
 {
@@ -54,7 +54,7 @@ class AnggotaController extends Controller
 
         $foto = $request->file('foto');
         $foto_name = Str::slug($request->name) . '-' . Str::random(5) . '.' . $foto->getClientOriginalExtension();
-        $foto->storeAs('public/anggota', $foto_name);
+        $foto->storeAs('anggota', $foto_name);
 
         User::create([
             'name' => $name = $request->name,
@@ -77,9 +77,12 @@ class AnggotaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show(User $user, $anggota)
     {
-        //
+        $anggota = User::where('slug', $anggota)->firstOrFail();
+        return view('Admin.User.show', [
+            'anggota' => $anggota,
+        ]);
     }
 
     /**
@@ -93,16 +96,57 @@ class AnggotaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user, $anggota)
     {
-        //
+        $anggota = User::where('slug', $anggota)->firstOrFail();
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $anggota->id,
+            'unit_id' => 'required|exists:units,id',
+            'password' => 'nullable|min:8|confirmed',
+            'tingkatan_id' => 'required|exists:tingkatans,id',
+            'no_anggota' => 'required|string|unique:users,no_anggota,' . $anggota->id,
+            'alamat' => 'required|string',
+            'tanggal_lahir' => 'required|date',
+            'jenis_kelamin' => 'required|in:L,P',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+
+        if ($request->hasFile('foto')) {
+            Storage::delete('anggota/' . $anggota->foto);
+            $foto = $request->file('foto');
+            $foto_name = Str::slug($request->name) . '-' . Str::random(5) . '.' . $foto->getClientOriginalExtension();
+            $foto->storeAs('anggota', $foto_name);
+        } else {
+            $foto_name = $anggota->foto;
+        }
+
+        $anggota->update([
+            'name' => $name = $request->name,
+            'email' => $request->email,
+            'unit_id' => $request->unit_id,
+            'password' => $request->password ? bcrypt($request->password) : $anggota->password,
+            'tingkatan_id' => $request->tingkatan_id,
+            'no_anggota' => $request->no_anggota,
+            'alamat' => $request->alamat,
+            'tanggal_lahir' => Carbon::parse($request->tanggal_lahir)->format('Y-m-d'),
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'foto' => $foto_name,
+        ]);
+
+        flash()->addSuccess('Anggota berhasil diubah');
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(User $user, $anggota)
     {
-        //
+        $anggota = User::where('slug', $anggota)->firstOrFail();
+        Storage::delete('anggota/' . $anggota->foto);
+        $anggota->delete();
+        flash()->addSuccess('Anggota berhasil dihapus');
+        return back();
     }
 }
